@@ -22,6 +22,15 @@ class _UserImagePickerState extends State<UserImagePicker> {
           imageQuality: 50,
       maxWidth: 150,
     );
+
+    if (pickedImage != null) {
+      setState(() {
+        _image = File(pickedImage.path);
+      });
+
+      widget.onImagePick(_image!);
+
+    }
   }
 
   @override
@@ -43,7 +52,7 @@ class _UserImagePickerState extends State<UserImagePicker> {
                 color: Theme.of(context).primaryColor,
               ),
               const SizedBox(width: 10),
-              Text('Adicionar Imagem')
+              const Text('Adicionar Imagem')
             ],
           ),
         ),
