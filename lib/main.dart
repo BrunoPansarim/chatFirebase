@@ -15,9 +15,8 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.green,
       ),
-      home: const AuthPage(title: 'Chat+Firebase',),
+      home: const AuthPage(),
       debugShowCheckedModeBanner: false,
     );
   }
 }
-;;;;;;;;;;;;;;;;;;;;;;;;
