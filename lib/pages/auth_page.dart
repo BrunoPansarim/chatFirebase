@@ -26,6 +26,7 @@ class _AuthPageState extends State<AuthPage> {
         );
       } else {
         //Signup
+        print('teste');
         await AuthMockService().signup(
           formData.name,
           formData.email,

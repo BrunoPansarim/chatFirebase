@@ -10,14 +10,14 @@ class ChatPage extends StatelessWidget {
     return Scaffold(
       body: Center(
           child: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          Text('Chat Page'),
-          TextButton(
-            onPressed: () {
-              AuthMockService().logout();
-            },
-            child: Text('Logout'),
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Text('Chat Page'),
+              TextButton(
+                onPressed: () {
+                  AuthMockService().logout();
+                },
+                child: Text('Logout'),
           ),
         ],
       )),

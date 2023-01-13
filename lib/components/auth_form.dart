@@ -108,14 +108,15 @@ class _AuthFormState extends State<AuthForm> {
                 ),
               ),
               TextButton(
-                child: Text(_formData.isLogin ?
-                'Add a new account' :
-                'Já possui conta ?'),
-                onPressed: () {
-                  setState(() {
-                    _formData.toggleAuthMode();
+                  onPressed: () {
+                    setState(() {
+                      _formData.toggleAuthMode();
                   });
                 },
+                child: Text(_formData.isLogin ?
+                'Add a new account' :
+                'Já possui conta ?',
+                ),
               ),
             ],
           ),
