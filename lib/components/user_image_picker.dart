@@ -29,7 +29,6 @@ class _UserImagePickerState extends State<UserImagePicker> {
       });
 
       widget.onImagePick(_image!);
-
     }
   }
 
