@@ -5,13 +5,23 @@ import 'dart:math';
 import 'package:chatfirebase/core/models/chat_user.dart';
 import 'package:chatfirebase/core/services/auth/auth_services.dart';
 
+
 class AuthMockService implements AuthService {
-  static final Map<String, ChatUser> _users = {};
+  static const _defaultUser = ChatUser(
+    id: '1',
+    name: 'Test',
+    email: 'bruno.pansarim@gmail.com',
+    imageURL: 'assets/images/avatar.png',
+  );
+
+  static final Map<String, ChatUser> _users = {
+    _defaultUser.email: _defaultUser,
+  };
   static ChatUser? _currentUser;
   static MultiStreamController<ChatUser?>? _controller;
   static final _userStream = Stream<ChatUser?>.multi((controller) {
     _controller = _controller;
-    _updateUser(null);
+    _updateUser(_defaultUser);
   });
 
   @override
@@ -25,17 +35,15 @@ class AuthMockService implements AuthService {
   }
 
   @override
-  Future<void> signup(
-    String name,
-    String email,
-    String password,
-    File? image,
-  ) async {
+  Future<void> signup(String name,
+      String email,
+      String password,
+      File? image,) async {
     final newUser = ChatUser(
       id: Random().nextDouble().toString(),
       name: name,
       email: email,
-      imageURL: image?.path ?? '/assets/images/...',
+      imageURL: image?.path ?? 'assets/images/avatar.png',
     );
 
     _users.putIfAbsent(email, () => newUser);

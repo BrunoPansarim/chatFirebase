@@ -1,6 +1,6 @@
 import 'package:chatfirebase/components/auth_form.dart';
 import 'package:chatfirebase/core/models/auth_form_data.dart';
-import 'package:chatfirebase/core/services/auth/auth_mock_service.dart';
+import 'package:chatfirebase/core/services/auth/auth_services.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
@@ -18,16 +18,15 @@ class _AuthPageState extends State<AuthPage> {
     try {
       setState(() => _isLoading = true);
 
-      //login
       if (formData.isLogin) {
-        await AuthMockService().login(
+        // Login
+        await AuthService().login(
           formData.email,
           formData.password,
         );
       } else {
-        //Signup
-        print('teste');
-        await AuthMockService().signup(
+        // Signup
+        await AuthService().signup(
           formData.name,
           formData.email,
           formData.password,
@@ -35,7 +34,7 @@ class _AuthPageState extends State<AuthPage> {
         );
       }
     } catch (error) {
-      //tratar erro
+      // Tratar erro!
     } finally {
       setState(() => _isLoading = false);
     }
@@ -55,7 +54,7 @@ class _AuthPageState extends State<AuthPage> {
           if (_isLoading)
             Container(
               decoration: const BoxDecoration(
-                color: Color.fromARGB(0, 0, 0, 05),
+                color: Color.fromRGBO(0, 0, 0, 0.5),
               ),
               child: const Center(
                 child: CircularProgressIndicator(),
