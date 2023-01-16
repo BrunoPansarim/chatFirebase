@@ -1,7 +1,6 @@
 import 'dart:async';
 import 'dart:io';
 import 'dart:math';
-
 import 'package:chatfirebase/core/models/chat_user.dart';
 import 'package:chatfirebase/core/services/auth/auth_services.dart';
 
@@ -20,7 +19,7 @@ class AuthMockService implements AuthService {
   static ChatUser? _currentUser;
   static MultiStreamController<ChatUser?>? _controller;
   static final _userStream = Stream<ChatUser?>.multi((controller) {
-    _controller = _controller;
+    _controller = controller;
     _updateUser(_defaultUser);
   });
 
@@ -35,10 +34,12 @@ class AuthMockService implements AuthService {
   }
 
   @override
-  Future<void> signup(String name,
+  Future<void> signup(
+      String name,
       String email,
       String password,
-      File? image,) async {
+      File? image,
+      ) async {
     final newUser = ChatUser(
       id: Random().nextDouble().toString(),
       name: name,
