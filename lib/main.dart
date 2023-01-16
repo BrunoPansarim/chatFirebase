@@ -16,7 +16,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.green,
       ),
-      home: const AuthPage(),
+      home: const AuthOrPage(),
       debugShowCheckedModeBanner: false,
     );
   }
