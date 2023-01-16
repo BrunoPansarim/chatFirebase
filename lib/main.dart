@@ -1,4 +1,5 @@
 import 'package:chatfirebase/pages/auth_or_app_page.dart';
+import 'package:chatfirebase/pages/auth_page.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -15,7 +16,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.green,
       ),
-      home: AuthOrPage(),
+      home: AuthPage(),
       debugShowCheckedModeBanner: false,
     );
   }
