@@ -7,17 +7,23 @@ class AuthFormData {
   String email = '';
   String password = '';
   File? image;
-  AuthMode _mode = AuthMode.Login;
+  AuthMode mode = AuthMode.Login;
 
   bool get isLogin {
-    return _mode == AuthMode.Login;
+    return mode == AuthMode.Login;
   }
 
   bool get isSignup {
-    return _mode == AuthMode.Signup;
+    return mode == AuthMode.Signup;
   }
 
+  // AuthMode get mode => _mode;
+  //
+  // set mode(AuthMode value) {
+  //   _mode = value;
+  // }
+
   void toggleAuthMode() {
-    _mode = isLogin ? AuthMode.Signup : AuthMode.Login;
+    mode = isLogin ? AuthMode.Signup : AuthMode.Login;
   }
 }
