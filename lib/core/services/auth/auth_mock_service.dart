@@ -7,9 +7,9 @@ import 'package:chatfirebase/core/services/auth/auth_services.dart';
 
 class AuthMockService implements AuthService {
   static const _defaultUser = ChatUser(
-    id: '1',
-    name: 'Test',
-    email: 'bruno.pansarim@gmail.com',
+    id: '543',
+    name: 'Trollzinho',
+    email: 'trollzinho@gmail.com',
     imageURL: 'assets/images/avatar.png',
   );
 
