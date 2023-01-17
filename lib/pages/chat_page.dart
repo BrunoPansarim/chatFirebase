@@ -21,10 +21,10 @@ class ChatPage extends StatelessWidget {
               items: [
                 DropdownMenuItem(
                     child: Row(
-                      children: [
+                      children: const [
                         Icon(
                           Icons.exit_to_app,
-                          color: Colors.red[900],
+                          color: Colors.black,
                         ),
                         SizedBox(width: 10),
                         Text('Exit'),

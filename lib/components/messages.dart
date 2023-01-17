@@ -4,6 +4,8 @@ import 'package:chatfirebase/core/services/chat/chat_service.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
+import 'message_bubble.dart';
+
 class Messages extends StatelessWidget {
   const Messages ({Key? key}) : super(key: key);
 
@@ -25,7 +27,7 @@ class Messages extends StatelessWidget {
             itemBuilder: (ctx, i) => MessageBubble(
               key: ValueKey(msgs[i].id),
               message: msgs[i],
-              belongsToCurrentUser: CurrentUser?.id == msgs[i].userId,
+              belongsToCurrentUser: currentUser?.id == msgs[i].userId,
             ),
           );
         }
