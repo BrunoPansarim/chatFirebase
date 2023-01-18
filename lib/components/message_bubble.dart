@@ -21,15 +21,21 @@ class MessageBubble extends StatelessWidget {
               decoration: BoxDecoration(
                 color: belongsToCurrentUser
                     ? Colors.greenAccent
-                    : Theme.of(context).accentColor,
-                borderRadius: const BorderRadius.all(Radius.elliptical(5, 5)),
+                    : Theme.of(context).colorScheme.secondary,
+                borderRadius: const BorderRadius.all(Radius.circular(5),
+                ),
               ),
               width: 180,
               padding: const EdgeInsets.symmetric(
                 vertical: 10,
                 horizontal: 16,
               ),
-              child: Column(children: [
+              margin: const EdgeInsets.symmetric(
+                vertical: 15,
+                horizontal: 8,
+              ),
+              child: Column(
+                  children: [
                 Text(
                   message.username,
                   style: TextStyle(
