@@ -10,33 +10,33 @@ class ChatPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('BrunoChat'),
+        title: const Text(
+          'BrunoChat',
+        ),
         actions: [
           DropdownButton(
-            icon: Icon(
-              Icons.more_vert,
-              color: Theme.of(context).primaryIconTheme.color
-            ),
+              icon: Icon(Icons.more_vert,
+                  color: Theme.of(context).primaryIconTheme.color),
               items: [
                 DropdownMenuItem(
-                    child: Row(
-                      children: const [
-                        Icon(
-                          Icons.exit_to_app,
-                          color: Colors.black,
-                        ),
-                        SizedBox(width: 10),
-                        Text('Exit'),
-                      ],
-                    ),
+                  value: 'logout',
+                  child: Row(
+                    children: const [
+                      Icon(
+                        Icons.exit_to_app,
+                        color: Colors.black,
+                      ),
+                      SizedBox(width: 10),
+                      Text('Exit'),
+                    ],
+                  ),
                 ),
               ],
-            onChanged: (value) {
-              if(value == 'logout') {
-                AuthService().logout();
-              }
-            }
-          ),
+              onChanged: (value) {
+                if (value == 'logout') {
+                  AuthService().logout();
+                }
+              }),
         ],
       ),
       body: SafeArea(
