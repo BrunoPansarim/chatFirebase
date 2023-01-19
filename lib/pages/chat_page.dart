@@ -1,7 +1,6 @@
 import 'package:chatfirebase/components/messages.dart';
 import 'package:chatfirebase/components/new_message.dart';
 import 'package:chatfirebase/core/services/auth/auth_services.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 class ChatPage extends StatelessWidget {
@@ -11,7 +10,7 @@ class ChatPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('BrunoChat'),
+        title: const Text('BrunoChat'),
         actions: [
           DropdownButton(
             icon: Icon(

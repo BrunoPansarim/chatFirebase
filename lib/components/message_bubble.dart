@@ -1,7 +1,7 @@
 import 'dart:io';
 
 import 'package:chatfirebase/core/models/chat_message.dart';
-import 'package:flutter/cupertino.dart';
+//import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 class MessageBubble extends StatelessWidget {
@@ -63,9 +63,8 @@ class MessageBubble extends StatelessWidget {
               margin: const EdgeInsets.symmetric(vertical: 15, horizontal: 8),
               child: Column(
                 crossAxisAlignment: belongsToCurrentUser
-                ? CrossAxisAlignment.end
-                : CrossAxisAlignment.start,
-
+                    ? CrossAxisAlignment.end
+                    : CrossAxisAlignment.start,
                 children: [
                   Text(
                     message.username,
@@ -76,7 +75,8 @@ class MessageBubble extends StatelessWidget {
                   ),
                   Text(
                     message.text,
-                    textAlign: belongsToCurrentUser ? TextAlign.right : TextAlign.left,
+                    textAlign:
+                        belongsToCurrentUser ? TextAlign.right : TextAlign.left,
                     style: TextStyle(
                       color: belongsToCurrentUser ? Colors.black : Colors.white,
                     ),
@@ -96,4 +96,3 @@ class MessageBubble extends StatelessWidget {
     );
   }
 }
-

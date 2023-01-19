@@ -13,6 +13,7 @@ class ChatMockService implements ChatService {
     controller.add(_msgs);
   });
 
+  @override
   Stream<List<ChatMessage>> messagesStream() {
     return _msgsStream;
   }
@@ -34,4 +35,4 @@ class ChatMockService implements ChatService {
 
   @override
   dynamic noSuchMethod(Invocation invocation) => super.noSuchMethod(invocation);
- }
+}

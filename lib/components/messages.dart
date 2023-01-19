@@ -1,9 +1,7 @@
 import 'package:chatfirebase/core/models/chat_message.dart';
 import 'package:chatfirebase/core/services/auth/auth_services.dart';
 import 'package:chatfirebase/core/services/chat/chat_service.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-
 import 'message_bubble.dart';
 
 class Messages extends StatelessWidget {
@@ -13,7 +11,7 @@ class Messages extends StatelessWidget {
   Widget build(BuildContext context) {
     final currentUser = AuthService().currentUser;
     return  StreamBuilder<List<ChatMessage>>(
-      stream: ChatService().messageStream(),
+      stream: ChatService().messagesStream(),
       builder: (ctx, snapshot) {
         if (snapshot.connectionState == ConnectionState.waiting) {
           return const Center(child: CircularProgressIndicator());

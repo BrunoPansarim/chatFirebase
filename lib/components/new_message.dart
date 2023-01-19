@@ -6,11 +6,9 @@ class NewMessage extends StatefulWidget {
   const NewMessage({Key? key}) : super(key: key);
 
   @override
-  State<StatefulWidget> createState() {
-    // TODO: implement createState
-    throw UnimplementedError();
-  }
+  State<NewMessage> createState() => _NewMessageState();
 }
+
 
 class _NewMessageState extends State<NewMessage> {
   String _message = '';
@@ -33,7 +31,7 @@ class _NewMessageState extends State<NewMessage> {
           child: TextField(
             controller: _messageController,
             onChanged: (msg) => setState(() => _message = msg),
-            decoration: InputDecoration(
+            decoration: const InputDecoration(
               labelText: 'Send Msg...',
             ),
             onSubmitted: (_) {
@@ -44,7 +42,7 @@ class _NewMessageState extends State<NewMessage> {
           ),
         ),
         IconButton(
-          icon: Icon(Icons.send),
+          icon: const Icon(Icons.send),
           onPressed: _message.trim().isEmpty ? null : _sendMessage,
         ),
       ],
