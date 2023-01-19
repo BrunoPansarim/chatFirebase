@@ -12,31 +12,42 @@ class ChatPage extends StatelessWidget {
       appBar: AppBar(
         title: const Text(
           'BrunoChat',
+          textAlign: TextAlign.center,
         ),
         actions: [
-          DropdownButton(
-              icon: Icon(Icons.more_vert,
-                  color: Theme.of(context).primaryIconTheme.color),
-              items: [
-                DropdownMenuItem(
-                  value: 'logout',
-                  child: Row(
-                    children: const [
-                      Icon(
-                        Icons.exit_to_app,
-                        color: Colors.black,
-                      ),
-                      SizedBox(width: 10),
-                      Text('Exit'),
-                    ],
+          DropdownButtonHideUnderline(
+            child: DropdownButton(
+                icon: Icon(Icons.more_vert,
+                    color: Theme.of(context).primaryIconTheme.color),
+                items: [
+                  DropdownMenuItem(
+                    value: 'logout',
+                    child: Row(
+                      children: const [
+                        Icon(
+                          Icons.exit_to_app,
+                          color: Colors.black,
+                        ),
+                        SizedBox(width: 10),
+                        Text('Exit'),
+                      ],
+                    ),
                   ),
-                ),
-              ],
-              onChanged: (value) {
-                if (value == 'logout') {
-                  AuthService().logout();
-                }
-              }),
+                ],
+                onChanged: (value) {
+                  if (value == 'logout') {
+                    AuthService().logout();
+                  }
+                }),
+          ),
+          Stack(
+            children: [
+              IconButton(
+                onPressed: () {},
+                icon: const Icon(Icons.notifications),
+              ),
+            ],
+          )
         ],
       ),
       body: SafeArea(
