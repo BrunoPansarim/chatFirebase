@@ -1,6 +1,5 @@
 import 'dart:async';
 import 'dart:math';
-
 import 'package:chatfirebase/core/models/chat_message.dart';
 import 'package:chatfirebase/core/models/chat_user.dart';
 import 'package:chatfirebase/core/services/chat/chat_service.dart';
@@ -19,11 +18,6 @@ class ChatMockService implements ChatService {
   }
 
   @override
-  Stream<List<ChatMessage>> messageStream() {
-    throw UnimplementedError();
-  }
-
-  @override
   Future<ChatMessage> save(String text, ChatUser user) async {
     final newMessage = ChatMessage(
       id: Random().nextDouble().toString(),
@@ -37,4 +31,7 @@ class ChatMockService implements ChatService {
     _controller?.add(_msgs.reversed.toList());
     return newMessage;
   }
-}
+
+  @override
+  dynamic noSuchMethod(Invocation invocation) => super.noSuchMethod(invocation);
+ }

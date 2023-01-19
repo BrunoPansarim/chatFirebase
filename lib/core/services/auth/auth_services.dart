@@ -1,5 +1,4 @@
 import 'dart:io';
-
 import 'package:chatfirebase/core/models/chat_user.dart';
 import 'package:chatfirebase/core/services/auth/auth_mock_service.dart';
 
