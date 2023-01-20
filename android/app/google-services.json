@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "361181411573",
+    "project_id": "chatfirebase-a7b20",
+    "storage_bucket": "chatfirebase-a7b20.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:361181411573:android:d24af4e0e6acfcc8836dbc",
+        "android_client_info": {
+          "package_name": "chat.bruno"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "361181411573-d09ci2id9klu5o429qso1ufvnmtctjav.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDODNjfRqArybQx_cbuFqXcaql5KdAa7I4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "361181411573-d09ci2id9klu5o429qso1ufvnmtctjav.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -5,7 +5,11 @@ import '../core/models/chat_notification.dart';
 class ChatNotificationService with ChangeNotifier {
   final List<ChatNotification> _items = [];
 
-  List<ChatNotification> get itens {
+  int get itemsCount {
+    return _items.length;
+  }
+
+  List<ChatNotification> get items {
     return [..._items];
   }
 

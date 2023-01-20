@@ -1,7 +1,11 @@
 import 'package:chatfirebase/components/messages.dart';
 import 'package:chatfirebase/components/new_message.dart';
 import 'package:chatfirebase/core/services/auth/auth_services.dart';
+import 'package:chatfirebase/notification/chat_notification_service.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+
+import 'notification_page.dart';
 
 class ChatPage extends StatelessWidget {
   const ChatPage({Key? key}) : super(key: key);
@@ -43,8 +47,28 @@ class ChatPage extends StatelessWidget {
           Stack(
             children: [
               IconButton(
-                onPressed: () {},
-                icon: const Icon(Icons.notifications),
+                icon: Icon(Icons.notifications),
+                onPressed: () {
+                  Navigator.of(context).push(
+                    MaterialPageRoute(builder: (cxt) {
+                      return const NotificationPage();
+                    }),
+                  );
+                },
+              ),
+              Positioned(
+                top: 5,
+                right: 5,
+                child: CircleAvatar(
+                  maxRadius: 10,
+                  backgroundColor: Colors.amberAccent,
+                  child: Text(
+                      '${Provider.of<ChatNotificationService>(context).itemsCount}',
+                    style: TextStyle(
+                      fontSize: 10,
+                    ),
+                  ),
+                ),
               ),
             ],
           )
