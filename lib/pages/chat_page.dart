@@ -64,7 +64,7 @@ class ChatPage extends StatelessWidget {
                   backgroundColor: Colors.amberAccent,
                   child: Text(
                       '${Provider.of<ChatNotificationService>(context).itemsCount}',
-                    style: TextStyle(
+                    style: const TextStyle(
                       fontSize: 10,
                     ),
                   ),
