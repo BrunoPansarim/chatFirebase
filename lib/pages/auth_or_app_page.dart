@@ -5,12 +5,19 @@ import 'package:chatfirebase/pages/chat_page.dart';
 import 'package:chatfirebase/pages/loading_page.dart';
 import 'package:flutter/material.dart';
 import 'package:firebase_core/firebase_core.dart';
+import 'package:provider/provider.dart';
+
+import '../notification/chat_notification_service.dart';
 
 class AuthOrPage extends StatelessWidget {
   const AuthOrPage({super.key});
 
-  Future<void> init(BuildContext context) async {
+  Future<void> init(context) async {
     await Firebase.initializeApp();
+    await Provider.of<ChatNotificationService>(
+      context,
+      listen: false,
+    ).init();
   }
 
   @override

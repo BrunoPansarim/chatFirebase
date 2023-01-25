@@ -6,6 +6,7 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_core/firebase_core.dart';
 
 class ChatFirebaseService implements ChatService {
+  @override
   Stream<List<ChatMessage>> messagesStream() {
     final store = FirebaseFirestore.instance;
     final snapshots = store
@@ -14,20 +15,21 @@ class ChatFirebaseService implements ChatService {
           fromFirestore: _fromFirestore,
           toFirestore: _toFirestore,
         )
+        .orderBy('createdAt', descending: true)
         .snapshots();
 
-    return snapshots.map((snapshot) {
-
-    });
-
-    // return Stream<List<ChatMessage>>.multi((controller) {
-    //   snapshots.listen((snapshot) {
-    //     List<ChatMessage> lista = snapshot.docs.map((doc) {
-    //       return doc.data();
-    //     }).toList();
-    //     controller.add(lista);
-    //   });
+    // return snapshots.map((snapshot) {
+    //
     // });
+
+    return Stream<List<ChatMessage>>.multi((controller) {
+      snapshots.listen((snapshot) {
+        List<ChatMessage> lista = snapshot.docs.map((doc) {
+          return doc.data();
+        }).toList();
+        controller.add(lista);
+      });
+    });
     }
 
   @override
@@ -37,7 +39,7 @@ class ChatFirebaseService implements ChatService {
     final msg = ChatMessage(
       id: '',
       text: text,
-      createdAt: DateTime.now().toIso8601String(),
+      createdAt: DateTime.now(),
       userId: user.id,
       username: user.name,
       userImageURL: user.imageURL,
@@ -75,7 +77,7 @@ class ChatFirebaseService implements ChatService {
     return ChatMessage(
       id: doc.id,
       text: doc['text'],
-      createdAt: DateTime.parse(['createdAt']),
+      createdAt: DateTime.parse(doc['createdAt']),
       userId: doc['userId'],
       username: doc['userName'],
       userImageURL: doc['userImageUrl'],
