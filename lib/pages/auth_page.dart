@@ -1,8 +1,8 @@
 import 'package:chatfirebase/components/auth_form.dart';
 import 'package:chatfirebase/core/models/auth_form_data.dart';
-import 'package:chatfirebase/core/services/auth/auth_services.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+
+import '../core/services/auth/auth_services.dart';
 
 class AuthPage extends StatefulWidget {
   const AuthPage({super.key});

@@ -1,4 +1,5 @@
-import 'dart:async';
+import 'dart:core';
+
 import 'package:chatfirebase/core/models/chat_message.dart';
 import 'package:chatfirebase/core/models/chat_user.dart';
 import 'package:chatfirebase/core/services/chat/chat_service.dart';
@@ -31,7 +32,7 @@ class ChatFirebaseService implements ChatService {
     final msg = ChatMessage(
       id: '',
       text: text,
-      createdAt: DateTime.now(),
+      createdAt: DateTime.now().toString(),
       userId: user.id,
       username: user.name,
       userImageURL: user.imageURL,
@@ -46,19 +47,21 @@ class ChatFirebaseService implements ChatService {
         .add(msg);
 
     final doc = await docRef.get();
-    return doc.data()!;
+    final data = doc.data()!;
+    return null;
   }
 
+  // ChatMessage => Map<String, dynamic>
   Map<String, dynamic> _toFirestore(
     ChatMessage msg,
     SetOptions? options,
   ) {
     return {
       'text': msg.text,
-      'createdAt': msg.createdAt.toIso8601String(),
+      'createdAt': DateTime.now().toIso8601String(),
       'userId': msg.userId,
       'userName': msg.username,
-      'userImageUrl': msg.userImageURL,
+      'userImageURL': msg.userImageURL,
     };
   }
 
@@ -69,10 +72,10 @@ class ChatFirebaseService implements ChatService {
     return ChatMessage(
       id: doc.id,
       text: doc['text'],
-      createdAt: DateTime.parse(doc['createdAt']),
+      createdAt: doc['createdAt'],
       userId: doc['userId'],
       username: doc['userName'],
-      userImageURL: doc['userImageUrl'],
+      userImageURL: doc['userImageURL'],
     );
   }
 }

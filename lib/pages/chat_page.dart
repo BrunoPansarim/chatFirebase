@@ -47,7 +47,7 @@ class ChatPage extends StatelessWidget {
           Stack(
             children: [
               IconButton(
-                icon: Icon(Icons.notifications),
+                icon: const Icon(Icons.notifications),
                 onPressed: () {
                   Navigator.of(context).push(
                     MaterialPageRoute(builder: (cxt) {
