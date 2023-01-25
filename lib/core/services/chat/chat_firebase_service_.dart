@@ -3,7 +3,6 @@ import 'package:chatfirebase/core/models/chat_message.dart';
 import 'package:chatfirebase/core/models/chat_user.dart';
 import 'package:chatfirebase/core/services/chat/chat_service.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:firebase_core/firebase_core.dart';
 
 class ChatFirebaseService implements ChatService {
   @override
@@ -18,19 +17,12 @@ class ChatFirebaseService implements ChatService {
         .orderBy('createdAt', descending: true)
         .snapshots();
 
-    // return snapshots.map((snapshot) {
-    //
-    // });
-
-    return Stream<List<ChatMessage>>.multi((controller) {
-      snapshots.listen((snapshot) {
-        List<ChatMessage> lista = snapshot.docs.map((doc) {
-          return doc.data();
-        }).toList();
-        controller.add(lista);
-      });
+    return snapshots.map((snapshot) {
+      return snapshot.docs.map((doc) {
+        return doc.data();
+      }).toList();
     });
-    }
+  }
 
   @override
   Future<ChatMessage?> save(String text, ChatUser user) async {
@@ -63,7 +55,7 @@ class ChatFirebaseService implements ChatService {
   ) {
     return {
       'text': msg.text,
-      'createdAt': DateTime.now().toIso8601String(),
+      'createdAt': msg.createdAt.toIso8601String(),
       'userId': msg.userId,
       'userName': msg.username,
       'userImageUrl': msg.userImageURL,
