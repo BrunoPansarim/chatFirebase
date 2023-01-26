@@ -1,6 +1,7 @@
 import 'dart:math';
 
 import 'package:flutter/material.dart';
+import 'package:ionicons/ionicons.dart';
 import 'package:provider/provider.dart';
 
 import '../core/models/chat_notification.dart';
@@ -18,12 +19,12 @@ class NotificationPage extends StatelessWidget {
         title: const Text('Notificações'),
       ),
       floatingActionButton: FloatingActionButton(
-        child: const Icon(Icons.add),
+        child: const Icon(Ionicons.trash_outline),
         onPressed: () {
           Provider.of<ChatNotificationService>(
             context,
             listen: false,
-          ).add(ChatNotification(
+          ).delete(ChatNotification(
             title: 'Add uma notificação!',
             body: Random().nextDouble().toString(),
           ));

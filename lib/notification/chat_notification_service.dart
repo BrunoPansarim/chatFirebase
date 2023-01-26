@@ -16,8 +16,8 @@ class ChatNotificationService with ChangeNotifier {
     return [..._items];
   }
 
-  void add(ChatNotification notification) {
-    _items.add(notification);
+  void delete(ChatNotification notification) {
+    _items.clear();
     notifyListeners();
   }
 
@@ -63,7 +63,7 @@ class ChatNotificationService with ChangeNotifier {
   void _messageHandler(RemoteMessage? msg) {
   if (msg == null || msg.notification == null) return;
 
-  add(ChatNotification(
+  delete(ChatNotification(
   title: msg.notification!.title ?? 'Não informado!',
   body: msg.notification!.body ?? 'Não informado!',
   ));
