@@ -43,6 +43,7 @@ dependencies:
   firebase_auth: ^4.0.2
   firebase_storage: ^11.0.10
   firebase_messaging: ^14.2.1
+  ionicons: ^0.2.2
 
 dev_dependencies:
   flutter_test:
